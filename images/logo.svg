@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <style>
+      .ring { fill: none; stroke: #C9A227; stroke-width: 2; }
+      .stitch { fill: none; stroke: #7A2E3B; stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 1 9; }
+      .petal { fill: #C9707E; }
+      .petal-alt { fill: #E3AEB8; }
+      .center { fill: #C9A227; }
+      .word { font-family: 'Fraunces', 'Georgia', serif; fill: #2B2320; }
+    </style>
+  </defs>
+
+  <circle cx="120" cy="120" r="112" fill="#FBF6EF"/>
+  <circle class="ring" cx="120" cy="120" r="106"/>
+  <circle class="stitch" cx="120" cy="120" r="96"/>
+
+  <!-- crochet rose, built from looped petal shapes -->
+  <g transform="translate(120,98)">
+    <path class="petal-alt" d="M0,-6 C16,-14 30,-2 26,12 C22,26 4,30 -6,20 C-16,10 -14,-2 0,-6 Z"/>
+    <path class="petal" d="M0,-6 C-16,-14 -30,-2 -26,12 C-22,26 -4,30 6,20 C16,10 14,-2 0,-6 Z"/>
+    <path class="petal-alt" d="M0,-14 C14,-20 24,-8 18,4 C12,16 -4,18 -10,8 C-16,-2 -12,-12 0,-14 Z"/>
+    <path class="petal" d="M0,-14 C-14,-20 -24,-8 -18,4 C-12,16 4,18 10,8 C16,-2 12,-12 0,-14 Z"/>
+    <circle class="center" cx="0" cy="0" r="7"/>
+  </g>
+
+  <!-- little leaf stem -->
+  <path d="M120,132 C120,150 120,160 120,172" fill="none" stroke="#6B8F71" stroke-width="3" stroke-linecap="round"/>
+  <path d="M120,150 C108,150 100,158 98,168 C112,168 118,160 120,150 Z" fill="#6B8F71"/>
+  <path d="M120,158 C132,158 140,166 142,176 C128,176 122,168 120,158 Z" fill="#6B8F71"/>
+
+  <text x="120" y="200" text-anchor="middle" class="word" font-size="27" letter-spacing="1">Pearls</text>
+  <text x="120" y="222" text-anchor="middle" class="word" font-size="15" letter-spacing="5" fill="#7A2E3B">THREAD</text>
+</svg>
