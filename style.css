@@ -63,6 +63,16 @@ h3{ font-size: 1.25rem; font-weight: 600; }
 
 p{ margin: 0 0 1em; color: var(--ink-soft); }
 
+.hero-tagline{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--wine);
+  margin: 0 0 1em;
+  line-height: 1.5;
+}
+.tagline-break{ display: none; }
+
 .eyebrow{
   font-family: var(--font-body);
   text-transform: uppercase;
@@ -124,6 +134,29 @@ a:focus-visible, button:focus-visible{
 .btn-facebook{ background: #1877F2; color: #fff; }
 .btn-facebook:hover{ box-shadow: 0 10px 24px -10px rgba(24,119,242,.6); }
 
+.btn-instagram{
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+  color: #fff;
+}
+.btn-instagram:hover{ box-shadow: 0 10px 24px -10px rgba(238,42,123,.55); }
+
+.btn-icon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn-icon .icon{ width: 19px; height: 19px; fill: #fff; }
+.btn-icon:hover{ transform: translateY(-2px); }
+.btn-icon-fb{ background: #1877F2; }
+.btn-icon-fb:hover{ box-shadow: 0 10px 22px -10px rgba(24,119,242,.6); }
+.btn-icon-ig{ background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); }
+.btn-icon-ig:hover{ box-shadow: 0 10px 22px -10px rgba(238,42,123,.55); }
+
 .btn-lg{ padding: 1em 1.9em; font-size: 1rem; }
 
 /* ==========================================================================
@@ -180,8 +213,9 @@ a:focus-visible, button:focus-visible{
 }
 .main-nav a:hover::after{ right: 0; }
 .nav-facebook{ color: #1877F2 !important; font-weight: 600; display: none; }
+.nav-instagram{ color: #ee2a7b !important; font-weight: 600; display: none; }
 
-.header-cta{ display: flex; gap: 8px; }
+.header-cta{ display: flex; align-items: center; gap: 8px; }
 .header-cta .btn{ padding: .6em 1em; font-size: .8rem; }
 
 .nav-toggle{
@@ -407,7 +441,65 @@ a:focus-visible, button:focus-visible{
 }
 .step h3{ margin-bottom: .35em; }
 .step p{ font-size: .92rem; max-width: 32ch; }
-.order-cta{ display: flex; gap: 14px; flex-wrap: wrap; }
+.order-form-wrap{
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--cream-deep);
+  border-radius: var(--radius);
+  padding: 44px 48px;
+}
+.order-form-head{ text-align: center; margin-bottom: 1.6em; }
+.order-form-head h3{ font-size: 1.5rem; max-width: 26ch; margin: 0 auto .3em; }
+.order-form-sub{ font-size: .92rem; max-width: 44ch; margin: 0 auto; }
+
+.order-form{ display: flex; flex-direction: column; gap: 18px; }
+.form-row{ display: flex; flex-direction: column; gap: 6px; }
+.form-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+.order-form label{
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  letter-spacing: .01em;
+}
+.order-form input,
+.order-form select,
+.order-form textarea{
+  font-family: var(--font-body);
+  font-size: .95rem;
+  color: var(--ink);
+  background: var(--cream);
+  border: 1.5px solid rgba(43,35,32,0.16);
+  border-radius: var(--radius-sm);
+  padding: .75em .9em;
+  width: 100%;
+  transition: border-color .2s ease;
+}
+.order-form input:focus,
+.order-form select:focus,
+.order-form textarea:focus{
+  outline: none;
+  border-color: var(--wine);
+}
+.order-form textarea{ resize: vertical; font-family: var(--font-body); }
+
+.form-error{
+  color: var(--wine-deep);
+  background: rgba(122,46,59,0.08);
+  border-radius: var(--radius-sm);
+  padding: 0;
+  font-size: .85rem;
+  font-weight: 600;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all .2s ease;
+}
+.form-error.is-visible{ padding: .7em 1em; max-height: 100px; margin: -6px 0 0; }
+
+.form-actions{ display: flex; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
+.form-actions button{ font-family: var(--font-body); }
+.form-note{ font-size: .8rem; text-align: center; opacity: .75; margin: 4px 0 0; }
 
 /* ==========================================================================
    Care
@@ -460,6 +552,7 @@ a:focus-visible, button:focus-visible{
 }
 .contact-line .icon{ width: 20px; height: 20px; fill: var(--wine); flex: none; }
 .contact-line .icon-fb{ fill: #1877F2; }
+.contact-line .icon-ig{ fill: #ee2a7b; }
 .contact-actions{ display: flex; gap: 12px; margin-top: 1.4em; flex-wrap: wrap; }
 
 .contact-map{ min-height: 320px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-card); }
@@ -536,6 +629,7 @@ a:focus-visible, button:focus-visible{
   }
   .main-nav.is-open{ transform: translateY(0); }
   .main-nav .nav-facebook{ display: block; }
+  .main-nav .nav-instagram{ display: block; }
   .header-cta{ display: none; }
   .nav-toggle{ display: flex; }
   .grid{ grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -543,10 +637,14 @@ a:focus-visible, button:focus-visible{
   .hero{ padding: 40px 0 60px; }
   .care-inner{ padding: 34px 26px; }
   .contact-card{ padding: 28px; }
+  .order-form-wrap{ padding: 30px 22px; }
+  .form-grid{ grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px){
   .grid{ grid-template-columns: 1fr 1fr; }
   .hero-actions .btn{ width: 100%; justify-content: center; }
   .hero-actions{ flex-direction: column; }
+  .form-actions{ flex-direction: column; }
+  .form-actions .btn{ width: 100%; justify-content: center; }
 }
